@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pencarian Hotel</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('images/background.jpg'); /* Ganti dengan nama file gambar latar belakang lokal Anda */
+            background-size: cover; /* Memastikan gambar latar belakang menutupi seluruh area */
+            background-position: center; /* Memusatkan gambar */
+            background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+        }
+
+        /* Sticky Header */
+        header {
+            background-color: rgba(30, 144, 255, 0.9); /* Transparansi untuk header */
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Center Navigation */
+        .center-nav {
+            display: flex;
+            gap: 15px;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        .center-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Right Navigation */
+        .right-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .right-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            background-color: #ff9800;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .right-nav a:hover {
+            background-color: #e68a00;
+        }
+
+        /* Hotel Search Section */
+        .hotel-search-section {
+            background-color: rgba(255, 255, 255, 0.9); /* Background putih dengan transparansi */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            margin-top: 20px;
+        }
+
+        .search-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .recent-hotels {
+            display: flex;
+            align-items: center;
+            background-color: #eaf4ff;
+            padding: 10px;
+            border-radius: 8px;
+            color: #007bff;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .recent-hotels .icon {
+            margin-right: 5px;
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+        }
+
+        .input-group label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .input-field {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .input-field .icon {
+            margin-right: 10px;
+            color: #666;
+        }
+
+        .input-field input[type="text"], 
+        .input-field input[type="date"], 
+        .input-field select {
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: #333;
+            flex: 1;
+        }
+
+        .checkout-date {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+
+        .pay-at-hotel {
+            color: #007bff;
+            font-size: 14px;
+            margin-left: 5px;
+            text-decoration: none;
+        }
+
+        .search-btn {
+            grid-column: span 2;
+            padding: 12px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-btn .icon {
+            margin-right: 5px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+            margin-top: auto; /* memastikan footer berada di bagian bawah */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Hotel Book</div>
+            <nav class="center-nav">
+                <a href="index.html">Beranda</a>
+                <a href="Hotel.html">Hotel</a>
+                <a href="contact.html">Kontak Kami</a>
+            </nav>
+            <div class="right-nav">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hotel-search-section">
+        <div class="search-container">
+            <div class="recent-hotels">
+                <span class="icon">🔍</span>
+                <span>Hotel yang Terakhir Dilihat</span>
+            </div>
+            
+            <div class="search-form">
+                <div class="input-group">
+                    <label>Kota, tujuan, atau nama hotel</label>
+                    <div class="input-field">
+                        <span class="icon">📍</span>
+                        <input type="text" placeholder="Kota, hotel, tempat wisata">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Check-in:</label>
+                    <div class="input-field">
+                        <span class="icon">📅</span>
+                        <input type="date" value="2024-11-04">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Durasi</label>
+                    <div class="input-field">
+                        <span class="icon">🌙</span>
+                        <select>
+                            <option>1 malam</option>
+                            <option>2 malam</option>
+                            <option>3 malam</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Check-out:</label>
+                    <span class="checkout-date">Sel, 05 Nov 2024</span>
+                </div>
+
+                <div class="input-group">
+                    <label>Tamu dan Kamar</label>
+                    <div class="input-field">
+                        <span class="icon">👥</span>
+                        <select>
+                            <option>2 Dewasa, 0 Anak, 1 Kamar</option>
+                            <option>1 Dewasa, 0 Anak, 1 Kamar</option>
+                            <option>2 Dewasa, 1 Anak, 1 Kamar</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <span class="icon">💳</span>
+                    <a href="#" class="pay-at-hotel">Bayar di Hotel</a>
+                </div>
+
+                <button class="search-btn">
+                    🔍 Cari Hotel
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>HotelBook Clone © 2024</p>
+    </footer>
+</body>
+</html>
